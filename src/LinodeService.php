@@ -20,6 +20,8 @@ class LinodeService {
    	private $assoc = false;
    	private $routesData = null;
    	private $base_uri = '';
+   	private $pointer = null;
+   	private $path = null;
 	public function __construct($token, $async = false, $assoc = true){
 		$this->initializeRoutesData();
 		$this->token = $token;
@@ -65,8 +67,15 @@ class LinodeService {
 	}
 
 	public function __call($key, $args){
-		//print_r($key);
-		//print_r($args);
-		
+		if($this->pointer == null){
+			$this->path = [];
+			$this->pointer = $this->routesData[$key];
+		}else{
+			$this->pointer = $this->pointer[$key];
+			if(count($args) === 1){
+				$this->pointer = $this->pointer['__parameter__'];
+			}
+		}
+		return $this;
 	}
 }

@@ -19,7 +19,8 @@
         "guzzlehttp/guzzle": "^6.3"
     },
     "scripts": {
-        "setup": "evride\\ComposerScripts::postInstall"
+        "setup": "evride\\ComposerScripts::postInstall",        
+        "test-setup": "evride\\ComposerScripts::test"
     }
 
 }
