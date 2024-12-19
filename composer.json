@@ -1,0 +1,25 @@
+{
+    "name": "evride/linode-magic-api",
+    "description": "A PHP Magic API for Linode",
+    "type": "library",
+    "license": "bsd",
+    "authors": [
+        {
+            "name": "Evan Ridenour",
+            "email": "eridenour@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "evride\\": "src/"
+        }
+    },
+    "require": {
+        "symfony/yaml": "^4.3",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "scripts": {
+        "setup": "evride\\ComposerScripts::postInstall"
+    }
+
+}
